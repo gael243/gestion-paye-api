@@ -13,6 +13,7 @@ class Contract extends Model
 
     protected $fillable = [
         'profession_id',
+        'employee_id',
         'type_contract_id',
         'date_of_hire',
         'pay_frequency',
@@ -30,10 +31,11 @@ class Contract extends Model
         return $this->belongsTo(TypeContract::class);
     }
 
-    public function employees()
+    public function employee()
     {
-        return $this->hasMany(Employee::class);
+        return $this->belongsTo(Employee::class);
     }
+
 
 
 }

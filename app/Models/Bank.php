@@ -18,8 +18,6 @@ class Bank extends Model
         'email',
     ];
 
-    public function employees()
-    {
-        return $this->hasMany(Employee::class);
-    }
+
+
 }

@@ -13,9 +13,6 @@ class Employee extends Model
 
     protected $fillable = [
         'company_id',
-        'payslip_id',
-        'vacation_id',
-        'bank_id',
         'user_id',
         'first_name',
         'name',
@@ -26,28 +23,12 @@ class Employee extends Model
         'marital_status',
         'email',
         'phone_number',
-        'bank_account',
         'cnss_number',
     ];
 
     public function company()
     {
         return $this->belongsTo(Compagny::class);
-    }
-
-    public function payslip()
-    {
-        return $this->belongsTo(Payslip::class);
-    }
-
-    public function vacation()
-    {
-        return $this->belongsTo(Vacation::class);
-    }
-
-    public function bank()
-    {
-        return $this->belongsTo(Bank::class);
     }
 
     public function user()

@@ -16,12 +16,15 @@ class CreateContractsTable extends Migration
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('profession_id');
+            $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('type_contract_id');
             $table->date('date_of_hire');
             $table->string('pay_frequency');
             $table->integer('base_salary');
+            $table->boolean('active');
 
             $table->foreign('profession_id')->references('id')->on('professions');
+            $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('type_contract_id')->references('id')->on('type_contracts');
             $table->softDeletes();
             $table->timestamps();

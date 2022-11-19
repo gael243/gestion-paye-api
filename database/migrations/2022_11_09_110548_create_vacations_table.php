@@ -16,10 +16,13 @@ class CreateVacationsTable extends Migration
         Schema::create('vacations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('type_vacation_id');
+            $table->unsignedBigInteger('employee_id');
             $table->integer('duration_of_vacation');
             $table->date('start_date');
+            $table->date('end_date');
 
             $table->foreign('type_vacation_id')->references('id')->on('type_vacations');
+            $table->foreign('employee_id')->references('id')->on('employees');
             $table->softDeletes();
             $table->timestamps();
         });

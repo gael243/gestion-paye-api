@@ -12,14 +12,17 @@ class Payslip extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'employee_id',
         'number_of_working_hour',
         'number_of_additional_hours',
         'number_of_paid_leave',
-        'number_of_holiday'
+        'number_of_holiday',
+        'month'
     ];
 
-    public function employees()
+    public function employee(): BelongsTo
     {
-        return $this->hasMany(Employee::class);
+        return $this->belongsTo(Employee::class);
     }
+
 }

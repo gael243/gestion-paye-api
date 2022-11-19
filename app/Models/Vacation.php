@@ -13,12 +13,19 @@ class Vacation extends Model
 
     protected $fillable = [
         'type_vacation_id',
+        'employee_id',
         'duration_of_vacation',
-        'start_date'
+        'start_date',
+        'end_date'
       ];
     
     public function type_vacation()
     {
         return $this->belongsTo(TypeVacation::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
     }
 }
