@@ -22,9 +22,10 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
-  });
+    Route::get('user', [AuthController::class, 'me']);
+});
 
-  Route::resource('users', UserController::class);
+Route::resource('users', UserController::class);
 
 
 
